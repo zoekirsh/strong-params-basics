@@ -26,7 +26,7 @@ In the rails app in this lesson there is our blog application with Strong Params
 ```
 
 5. Click somewhere else and look! a wild description field appears.
-6. Now typ in some message into the new field. 
+6. Now type in some message into the new field. 
 7. Click submit and you'll notice that the description has been updated. What a nefarious hack!
 
 That is the problem that strong params was created to fix. We want to make sure that when users submit a form we only let the field we want get by.
@@ -97,3 +97,5 @@ private
 This is a very helpful method since if you duplicated the strong parameter call in both the `create` and `update` methods you would need to change both method arguments every time you change the database schema for the `posts` table... and that sounds like a bad way to live. However by creating this `post_params` method we can simply make one change and both methods will automatically be able to have the proper attributes whitelisted.
 
 Test this out in the browser and you can see that you can now create and updated posts without any errors. And you will also notice that all of the Rspec tests are still passing.
+
+<a href='https://learn.co/lessons/strong-params-basics' data-visibility='hidden'>View this lesson on Learn.co</a>
