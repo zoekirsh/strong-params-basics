@@ -92,7 +92,7 @@ private
     params.require(:post).permit(:title, :description)
   end
 ```
-```
+
 
 This is a very helpful method since if you duplicated the strong parameter call in both the `create` and `update` methods you would need to change both method arguments every time you change the database schema for the `posts` table... and that sounds like a bad way to live. However by creating this `post_params` method we can simply make one change and both methods will automatically be able to have the proper attributes whitelisted.
 
