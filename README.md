@@ -7,7 +7,7 @@ To understand the goal of strong params, let's pretend that you run a pharmacy. 
 
 ## Setup
 
-To prevent confusion, in previous lessons I manually turned off the strong parameter requirement. Let's discover first why strong params were created, and then work with them.
+To prevent confusion, in previous lessons I manually turned off the strong parameter requirement. Let's discover first why strong params were created and then work with them.
 
 ## Why Strong Params
 
@@ -40,7 +40,7 @@ Let's go and enable Strong Params. To do this, open up `config/application.rb` a
 
 What this means is that Rails needs to be told what parameters are allowed to be submitted through the form to the database. The default is to let *nothing* through.
 
-The same error would occur if you were trying to update a record, so how do we fix this? Let's update the `create` and `update` methods to look like the code below:
+The same error would occur if you were trying to update a record. So how do we fix this? Let's update the `create` and `update` methods to look like the code below:
 
 ```ruby
 # app/controllers/posts_controller.rb
@@ -58,16 +58,16 @@ def update
 end
 ```
 
-If you go back to the web browser and click refresh you'll see everything is working for both the `create` and `update` actions. Running the Rspec tests reveals that our specs are now passing again as well. You'll notice that our `update` only has a `:title` in the `permit` method. This is because, given our forms we only want the `title` to be submitable! If you go and do your nefarious hack again, it won't work. Thwarted!!
+If you go back to the web browser and click refresh you'll see everything is working for both the `create` and `update` actions. Running the Rspec tests reveals that our specs are now passing again as well. You'll notice that our `update` only has a `:title` in the `permit` method. This is because, given our forms, we only want the `title` to be submitable! If you go and do your nefarious hack again, it won't work. Thwarted!!
 
 ### Permit vs. Require
 
-What is the deal with the `#permit` vs `#require`? The `#require` method is the most restrictive. It means that the `params` has that gets past in **must** contain a key called "post". If it not included then this fails you the user gets an error. The `#permit` method is a bit looser. It means that the `params` hash **may** have whatever key's are in it. So in the `create` case, it may have the `:title` and `:description` keys. If it doesn't have one of those keys it's no problem, the hash just won't accept any other keys.
+What is the deal with the `#permit` vs `#require`? The `#require` method is the most restrictive. It means that the `params` that gets past in **must** contain a key called "post". If it's not included then it fails and the user gets an error. The `#permit` method is a bit looser. It means that the `params` hash **may** have whatever key's are in it. So in the `create` case, it may have the `:title` and `:description` keys. If it doesn't have one of those keys it's no problem, the hash just won't accept any other keys.
 
 
 ## DRYing up Strong Params
 
-The code we wrote above is great if you only have a `create` method in your controller, however if you have a standard CRUD setup you will also need to implement the same code in your `update` action. In our example we had different code for `create` and `update`, but generally you have the same items. It's a standard Rails practice to remove code repetition, so let's abstract the strong parameter call into its own method in the controller:
+The code we wrote above is great if you only have a `create` method in your controller. However, if you have a standard CRUD setup you will also need to implement the same code in your `update` action. In our example we had different code for `create` and `update`, but generally you have the same items. It's a standard Rails practice to remove code repetition, so let's abstract the strong parameter call into its own method in the controller:
 
 Now, both our `create` and `update` methods in the `posts` controller can simply call `post_params`.
 
