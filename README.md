@@ -98,4 +98,4 @@ This is a very helpful method since if you duplicated the strong parameter call 
 
 Test this out in the browser and you can see that you can now create and updated posts without any errors. And you will also notice that all of the Rspec tests are still passing.
 
-<a href='https://learn.co/lessons/strong-params-basics' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/strong-params-basics' title='Strong Params Basics'>Strong Params Basics</a> on Learn.co and start learning to code for free.</p>
