@@ -62,7 +62,7 @@ If you go back to the web browser and click refresh you'll see everything is wor
 
 ### Permit vs. Require
 
-What is the deal with the `#permit` vs `#require`? The `#require` method is the most restrictive. It means that the `params` that gets past in **must** contain a key called "post". If it's not included then it fails and the user gets an error. The `#permit` method is a bit looser. It means that the `params` hash **may** have whatever key's are in it. So in the `create` case, it may have the `:title` and `:description` keys. If it doesn't have one of those keys it's no problem, the hash just won't accept any other keys.
+What is the deal with the `#permit` vs `#require`? The `#require` method is the most restrictive. It means that the `params` that gets passed in **must** contain a key called "post". If it's not included then it fails and the user gets an error. The `#permit` method is a bit looser. It means that the `params` hash **may** have whatever keys are in it. So in the `create` case, it may have the `:title` and `:description` keys. If it doesn't have one of those keys it's no problem, the hash just won't accept any other keys.
 
 
 ## DRYing up Strong Params
@@ -99,3 +99,5 @@ This is a very helpful method since if you duplicated the strong parameter call 
 Test this out in the browser and you can see that you can now create and updated posts without any errors. And you will also notice that all of the Rspec tests are still passing.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/strong-params-basics' title='Strong Params Basics'>Strong Params Basics</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/strong-params-basics'>Strong Params Basics</a> on Learn.co and start learning to code for free.</p>
