@@ -46,14 +46,14 @@ The same error would occur if you were trying to update a record. So how do we f
 # app/controllers/posts_controller.rb
 
 def create
-  @post = Post.new(params.require(:post).permit(:title, :description))
+  @post = Post.new(params.require(:post).permit(:title, :))
   @post.save
   redirect_to post_path(@post)
 end
 
 def update
   @post = Post.find(params[:id])
-  @post.update(params.require(:post).permit(:title, :description))
+  @post.update(params.require(:post).permit(:title))
   redirect_to post_path(@post)
 end
 ```
