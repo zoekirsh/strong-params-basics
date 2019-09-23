@@ -128,4 +128,8 @@ end
 
 Test this out in the browser and you can see that you can now create and updated posts without any errors. And you will also notice that all of the Rspec tests are still passing.
 
+## Resources
+
+[params.require in Rails 4](https://stackoverflow.com/questions/18424671/what-is-params-requireperson-permitname-age-doing-in-rails-4)
+
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/strong-params-basics'>Strong Params Basics</a> on Learn.co and start learning to code for free.</p>
