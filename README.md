@@ -2,7 +2,7 @@
 
 ## What are Strong Params?
 
-To understand the goal of strong params, let's pretend that you run a pharmacy. What would happen if you let all prescription orders come through without checking for valid prescriptions, driver licenses, etc.? (Spoiler alert: you'd probably end up in jail). It would be criminal to run a pharmacy without verifying that orders were legitimate. In the same way, Rails  wanted to shore up some security vulnerabilities. Since Rails 4+, developers are required to whitelist the parameters that are permitted  to be sent to the database from a form.
+To understand the goal of strong params, let's pretend that you run a pharmacy. What would happen if you let all prescription orders come through without checking for valid prescriptions, driver licenses, etc.? (Spoiler alert: you'd probably end up in jail.) It would be criminal to run a pharmacy without verifying that orders were legitimate. In the same way, Rails  wanted to shore up some security vulnerabilities. Since Rails 4+, developers are required to whitelist the parameters that are permitted  to be sent to the database from a form.
 
 
 ## Setup
@@ -14,7 +14,7 @@ To prevent confusion, in previous lessons I manually turned off the strong param
 In the Rails app in this lesson there is our blog application with Strong Params *disabled*. Create a new Post by going to `/posts/new`. Once you have created that post, go ahead and edit it at `/posts/1/edit`. You'll notice there is no Description field! In this case, I don't want the user to be able to modify the description of a post once it's been created. This happens in all kinds of different cases. You wouldn't want a bank user to be able to edit their account number or balance, would you? But! `balance` is still a field on the account class. In this case, `description` is still an attribute for the Post class. Let's see if a user could "hack" our form to be able to modify the `description`.
 
 1. Right click and inspect the page
-2. Find the input for title. it should look like this: `<input type="text" value="asdferwer" name="post[title]" id="post_title">`
+2. Find the input for title. it should look something like this: `<input type="text" value="asdferwer" name="post[title]" id="post_title">`
 3. Right click on choose "Edit as HTML"
 4. Add the following new Description field:
 
@@ -29,7 +29,7 @@ In the Rails app in this lesson there is our blog application with Strong Params
 6. Now type in some message into the new field.
 7. Click submit and you'll notice that the description has been updated. What a nefarious hack!
 
-That is the problem that strong params was created to fix. We want to make sure that when users submit a form we only let the fields we want get by.
+That is the problem that strong params were created to fix. We want to make sure that when users submit a form we only let the fields we want get by.
 
 ## Code Implementation
 
